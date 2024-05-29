@@ -35,6 +35,7 @@ def get_cars(request):
     return JsonResponse({"CarModels": cars})
 
 # Create a `login_request` view to handle sign in request
+
 @csrf_exempt
 def login_user(request):
     # Get username and password from request.POST dictionary
@@ -61,8 +62,9 @@ def login_user(request):
 
 # # Update the `get_dealerships` view to render the index page with
 # a list of dealerships
-# Update the `get_dealerships` render list of dealerships 
+# Update the `get_dealerships` render list of dealerships
 # all by default, particular state if state is passed
+
 def get_dealerships(request, state="All"):
     if (state == "All"):
         endpoint = "/fetchDealers"
@@ -107,10 +109,10 @@ def add_review(request):
     if (request.user.is_anonymous is False):
         data = json.loads(request.body)
         try:
-            response = post_review(data)
+            # response = post_review(data)
             return JsonResponse({"status": 200})
         except Exception:
-            return JsonResponse({"status": 401, 
+            return JsonResponse({"status": 401,
                                  "message": "Error in posting review"})
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
