@@ -24,7 +24,7 @@ try {
     Reviews.insertMany(reviews_data.reviews);
   });
   Dealerships.deleteMany({}).then(()=>{
-    Dealerships.insertMany(dealerships_data.dealerships]);
+    Dealerships.insertMany(dealerships_data.dealerships);
   });
   
 } catch (error) {
