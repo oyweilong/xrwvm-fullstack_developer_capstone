@@ -15,7 +15,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from .models import CarMake, CarModel
 from .populate import initiate
-from .restapis import get_request, analyze_review_sentiments, post_review
+# from .restapis import get_request, analyze_review_sentiments, post_review
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -35,6 +35,7 @@ def get_cars(request):
     return JsonResponse({"CarModels": cars})
 
 # Create a `login_request` view to handle sign in request
+
 
 @csrf_exempt
 def login_user(request):
@@ -64,6 +65,7 @@ def login_user(request):
 # a list of dealerships
 # Update the `get_dealerships` render list of dealerships
 # all by default, particular state if state is passed
+
 
 def get_dealerships(request, state="All"):
     if (state == "All"):
@@ -107,7 +109,7 @@ def get_dealer_details(request, dealer_id):
 
 def add_review(request):
     if (request.user.is_anonymous is False):
-        data = json.loads(request.body)
+        # data = json.loads(request.body)
         try:
             # response = post_review(data)
             return JsonResponse({"status": 200})
